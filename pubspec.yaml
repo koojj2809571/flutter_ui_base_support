@@ -1,0 +1,43 @@
+name: flutter_ui_base_support
+description: "A new Flutter project."
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.5.3
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #  网络
+  dio: ^5.7.0
+  #  md5加密
+  crypto: ^3.0.6
+  #  序列化
+  convert: ^3.1.2
+  #  数据本地化
+  shared_preferences: ^2.3.2
+  #  图片缓存
+  cached_network_image: ^3.4.1
+  #  状态管理
+  provider: ^6.1.2
+  #  电话,短信,浏览器,其他app
+  url_launcher: ^6.3.1
+  #  日期格式化
+  date_format: ^2.0.9
+  #  吐司提示
+  fluttertoast: ^8.2.8
+  #  尺寸适配
+  flutter_screenutil: ^5.9.3
+  # 上下拉刷新
+  pull_to_refresh_flutter3: ^2.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+
