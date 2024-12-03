@@ -10,6 +10,10 @@ abstract class BasePage extends StatefulWidget {
 
   BasePage({Key? key}) : super(key: key) {
     String className = runtimeType.toString();
+    if(!isDebug){
+      pagePath = className;
+      return;
+    }
     String path = StackTrace.current.toString().split(className)[1];
     path = path.split(')')[0];
     path = path.split('(')[1];

@@ -238,7 +238,12 @@ mixin class BaseFunction {
           color: Colors.black.withOpacity(0.05),
           child: PopScope(
             child: Center(
-              child: CupertinoActivityIndicator(radius: 10.w),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CupertinoActivityIndicator(radius: 10),
+                ],
+              ),
             ),
             onPopInvokedWithResult: (bool didPop, dynamic result) => Future.value(false),
           ),

@@ -16,6 +16,29 @@ extension StringUtil on String? {
     LogUtil.log(tag: tag, text: this);
   }
 
+  void logcat({LogLevel level = LogLevel.W}){
+    switch(level){
+      case LogLevel.T:
+        logger.t(this);
+        break;
+      case LogLevel.D:
+        logger.d(this);
+        break;
+      case LogLevel.I:
+        logger.i(this);
+        break;
+      case LogLevel.W:
+        logger.w(this);
+        break;
+      case LogLevel.E:
+        logger.e(this);
+        break;
+      case LogLevel.F:
+        logger.f(this);
+        break;
+    }
+  }
+
   /// 分段输出控制台,解决Android输出内容太长打印不全问题
   void segmentationLog() {
     LogUtil.segmentationLog(this);

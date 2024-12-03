@@ -9,6 +9,7 @@ import 'package:flutter_ui_base_support/config/global_constant.dart';
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:logger/logger.dart';
 
 part 'bool_extension.dart';
 part 'color_extension.dart';
@@ -46,4 +47,10 @@ class LogUtil{
       pattern.allMatches(content!).forEach((match) => log(tag: '', text: match.group(0)));
     }
   }
+}
+
+var logger = Logger();
+
+enum LogLevel{
+  T,D,I,W,E,F;
 }
