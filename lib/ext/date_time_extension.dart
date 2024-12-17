@@ -49,4 +49,16 @@ extension DateTimeExt on DateTime {
     return formatDate(
         this, [yyyy, '-', mm, '-', dd, " ", HH, ":", nn, ":", ss]);
   }
+  
+  String get ymd{
+    return formatDate(this, [yyyy, '-', mm, '-', dd]);
+  }
+
+  String get dayStart{
+    return '$ymd 00:00:00';
+  }
+
+  String get dayEnd{
+    return '$ymd 23:59:59';
+  }
 }
