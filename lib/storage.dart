@@ -14,6 +14,15 @@ class StorageUtil {
     _prefs = await SharedPreferences.getInstance();
   }
 
+  T? getByType<T>(String key){
+    var result = _prefs.get(key);
+    return (result as T?);
+  }
+
+  Future<bool> setType(String key, String value){
+    return _prefs.setString(key, value);
+  }
+
   Future<bool> setJSON(String key, dynamic jsonVal) {
     String jsonString = jsonEncode(jsonVal);
     return _prefs.setString(key, jsonString);

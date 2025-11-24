@@ -28,7 +28,7 @@ dependencies:
   #  日期格式化
   date_format: ^2.0.9
   #  吐司提示
-  fluttertoast: ^8.2.8
+  fluttertoast: ^8.2.12
   #  尺寸适配
   flutter_screenutil: ^5.9.3
   # 上下拉刷新

@@ -5,7 +5,7 @@ extension NumberUtil on num? {
   bool get empty => this == null;
 
   /// 数字形式bool值
-  bool get bVaule => this != 0;
+  bool get bValue => this != 0;
 
   ///返回状态栏高度与当前实例相乘的积 status bar height
   double sbh(BuildContext context) =>
@@ -13,6 +13,10 @@ extension NumberUtil on num? {
 
   ///返回appbar高度，也就是使用sdk导航栏高度与当前实例相乘的积 app bar height
   double get abh => this! * kToolbarHeight;
+
+  double statusWithNavBarH(BuildContext context){
+    return this! * (sbh(context) + abh);
+  }
 
   DateTime? get timestamp =>
       this == null ? null : DateTime.fromMillisecondsSinceEpoch(this!.floor());
