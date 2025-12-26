@@ -4,8 +4,8 @@ version: 0.0.1
 homepage:
 
 environment:
-  sdk: ^3.5.3
-  flutter: ">=1.17.0"
+  sdk: ^3.10.4
+  flutter: ">=3.27.0"
 
 dependencies:
   flutter:
@@ -18,23 +18,23 @@ dependencies:
   #  序列化
   convert: ^3.1.2
   #  数据本地化
-  shared_preferences: ^2.3.2
+  shared_preferences: ^2.5.4
   #  图片缓存
   cached_network_image: ^3.4.1
   #  状态管理
-  provider: ^6.1.2
+  provider: ^6.1.5
   #  电话,短信,浏览器,其他app
   url_launcher: ^6.3.1
   #  日期格式化
   date_format: ^2.0.9
   #  吐司提示
-  fluttertoast: ^8.2.12
+  fluttertoast: ^9.0.0
   #  尺寸适配
   flutter_screenutil: ^5.9.3
   # 上下拉刷新
   pull_to_refresh_flutter3: ^2.0.2
   # 日志输出
-  logger: ^2.5.0
+  logger: ^2.6.2
 
 dev_dependencies:
   flutter_test:

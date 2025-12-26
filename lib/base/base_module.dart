@@ -11,7 +11,6 @@ import 'package:flutter_ui_base_support/ext/extension_module.dart';
 import 'package:flutter_ui_base_support/net/net_module.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 part 'function/base_function.dart';
 part 'function/life_circle.dart';

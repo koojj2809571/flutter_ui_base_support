@@ -125,8 +125,8 @@ abstract class BasePageState<T extends BasePage> extends State<T>
       return _buildAutoHideKeyboardWrapper(context);
     } else {
       return PopScope(
-        child: _buildAutoHideKeyboardWrapper(context),
         onPopInvokedWithResult: onBackPressed,
+        child: _buildAutoHideKeyboardWrapper(context),
       );
     }
   }
