@@ -50,7 +50,7 @@ class _CustomTabBarIndicatorPainter extends BoxPainter {
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    Paint _paint = Paint()
+    Paint paint = Paint()
       ..color = color ?? _kIndicatorColor
       ..style = PaintingStyle.fill
       ..strokeCap = StrokeCap.round;
@@ -64,12 +64,12 @@ class _CustomTabBarIndicatorPainter extends BoxPainter {
             configuration.size!.height - _height,
           ),
           _height,
-          _paint,
+          paint,
         );
         break;
       case CustomTabBarIndicatorType.triangle:
         if (_height > configuration.size!.height) _height = _kIndicatorHeight;
-        Path _path = Path()
+        Path path = Path()
           ..moveTo(
             offset.dx + (configuration.size!.width) / 2 - _height,
             configuration.size!.height,
@@ -86,7 +86,7 @@ class _CustomTabBarIndicatorPainter extends BoxPainter {
                 (configuration.size!.width + _height) / 2,
             configuration.size!.height,
           );
-        canvas.drawPath(_path, _paint);
+        canvas.drawPath(path, paint);
         break;
       case CustomTabBarIndicatorType.rrect:
         canvas.drawRRect(
@@ -99,7 +99,7 @@ class _CustomTabBarIndicatorPainter extends BoxPainter {
             ),
             const Radius.circular(_kIndicatorAngle),
           ),
-          _paint,
+          paint,
         );
         break;
       case CustomTabBarIndicatorType.rrectInner:
@@ -113,7 +113,7 @@ class _CustomTabBarIndicatorPainter extends BoxPainter {
             ),
             const Radius.circular(_kIndicatorAngle),
           ),
-          _paint,
+          paint,
         );
         break;
       case CustomTabBarIndicatorType.runderline:
@@ -123,7 +123,7 @@ class _CustomTabBarIndicatorPainter extends BoxPainter {
             offset.dx + configuration.size!.width,
             configuration.size!.height - height! / 2,
           ),
-          _paint..strokeWidth = (height! / 2),
+          paint..strokeWidth = (height! / 2),
         );
         break;
       case CustomTabBarIndicatorType.runderlineFixed:
@@ -139,7 +139,7 @@ class _CustomTabBarIndicatorPainter extends BoxPainter {
             offset.dx + (configuration.size!.width + _width) / 2,
             configuration.size!.height - height! / 2,
           ),
-          _paint..strokeWidth = (height! / 2),
+          paint..strokeWidth = (height! / 2),
         );
         break;
     }

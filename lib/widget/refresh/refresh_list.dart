@@ -15,20 +15,20 @@ class RefreshList extends StatefulWidget {
   final RefreshController? controller;
   final NotifyAfterRefresh? notify;
 
-  const RefreshList({Key? key,
+  const RefreshList({super.key,
     required this.param,
     required this.sendRequest,
     required this.itemWidget,
     required this.itemClick,
     this.controller,
     this.notify
-  }) : super(key: key);
+  });
 
   @override
-  _RefreshListState createState() => _RefreshListState();
+  RefreshListState createState() => RefreshListState();
 }
 
-class _RefreshListState<R> extends State<RefreshList> {
+class RefreshListState<R> extends State<RefreshList> {
   late RefreshController _refreshCtr;
   late BasePageRequest param;
   late SendRequest sendRequest;

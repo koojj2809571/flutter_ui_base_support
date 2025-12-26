@@ -1,4 +1,4 @@
-part of extenssion_module;
+part of 'extension_module.dart';
 
 extension StringUtil on String? {
   /// null或者''(空字符串)时返回true

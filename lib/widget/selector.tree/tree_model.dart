@@ -1,4 +1,4 @@
-part of tree_selector;
+part of 'tree_selector.dart';
 
 abstract class BaseTreeData<T>{
   List<T> getTreeData();

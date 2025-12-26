@@ -1,4 +1,4 @@
-part of base_module;
+part of 'base_module.dart';
 
 /// 当使用Scaffold作为页面脚手架时重写以下字段getter方法
 mixin class BaseScaffold {

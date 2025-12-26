@@ -1,4 +1,4 @@
-part of base_module;
+part of 'base_module.dart';
 
 enum StartType { normal, removeUntil }
 
@@ -8,7 +8,7 @@ abstract class BasePage extends StatefulWidget {
   late final String pagePath;
   late final dynamic stack;
 
-  BasePage({Key? key}) : super(key: key) {
+  BasePage({super.key}) {
     String className = runtimeType.toString();
     if(!isDebug){
       pagePath = className;

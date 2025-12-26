@@ -1,4 +1,4 @@
-part of net_module;
+part of 'net_module.dart';
 
 class HttpController extends ChangeNotifier{
 

@@ -1,4 +1,4 @@
-part of extenssion_module;
+part of 'extension_module.dart';
 
 /// widget 扩展
 extension WidgetExt on Widget {
@@ -9,7 +9,6 @@ extension WidgetExt on Widget {
     GestureLongPressCallback? onLongPress,
   }) =>
       GestureDetector(
-        child: this,
         onTap: () {
           bool isLogin = needLogin ? GlobalConstant().checkLogin() : true;
           if (onTap != null && isLogin) {
@@ -29,6 +28,7 @@ extension WidgetExt on Widget {
           }
         },
         behavior: HitTestBehavior.translucent,
+        child: this,
       );
 
   Expanded intoExpand({flex = 1}) {

@@ -1,4 +1,4 @@
-part of extenssion_module;
+part of 'extension_module.dart';
 
 extension DateTimeExt on DateTime {
   int get ms => millisecondsSinceEpoch;

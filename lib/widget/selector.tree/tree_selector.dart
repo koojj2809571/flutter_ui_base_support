@@ -16,10 +16,10 @@ class TreeSelectDialog<T extends BaseTreeData> extends StatefulWidget {
   });
 
   @override
-  _TreeSelectDialogState createState() => _TreeSelectDialogState();
+  TreeSelectDialogState createState() => TreeSelectDialogState();
 }
 
-class _TreeSelectDialogState extends State<TreeSelectDialog>
+class TreeSelectDialogState extends State<TreeSelectDialog>
     with TickerProviderStateMixin {
   final Map<int, List<dynamic>> _datas = {};
   final Map<int, String> _selectNameDatas = {};
@@ -109,9 +109,9 @@ class _TreeSelectDialogState extends State<TreeSelectDialog>
               Expanded(
                   flex: 1,
                   child: TabBarView(
-                    children: _buildPages(),
                     controller: _tabController,
                     physics: const NeverScrollableScrollPhysics(),
+                    children: _buildPages(),
                   )),
             ],
           ),

@@ -1,4 +1,4 @@
-part of base_module;
+part of '../base_module.dart';
 
 class NavigatorManger {
   final List<BasePageState> _activityStack = [];

@@ -1,9 +1,9 @@
-part of base_module;
+part of 'base_module.dart';
 
 abstract class BaseFragment extends StatefulWidget {
   late final String componentPath;
 
-  BaseFragment({Key? key}) : super(key: key) {
+  BaseFragment({super.key}) {
       String className = toString();
       String path = StackTrace.current.toString().split(className)[1];
       path = path.split(')')[0];

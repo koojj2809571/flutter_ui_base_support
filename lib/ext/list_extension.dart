@@ -1,4 +1,4 @@
-part of extenssion_module;
+part of 'extension_module.dart';
 
 extension ListUtil on List? {
   /// 非空判断包含null
@@ -18,7 +18,7 @@ extension ListUtil on List? {
           result += value.listToStructureString(indentation: indentation + 2);
         } else {
           String temp = (value is String) ? "\"$value\"," : "$value,";
-          result += "\n$indentationStr" + temp;
+          result += "\n$indentationStr$temp";
         }
       }
       result = result.substring(0, result.length - 1);

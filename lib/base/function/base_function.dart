@@ -1,4 +1,4 @@
-part of base_module;
+part of '../base_module.dart';
 
 mixin class BaseFunction {
   State? _stateBaseFunction;
@@ -235,9 +235,9 @@ mixin class BaseFunction {
       context: _contextBaseFunction!,
       builder: (BuildContext context) {
         return Material(
-          color: Colors.black.withOpacity(0.05),
+          color: Colors.black.withValues(alpha: 0.05),
           child: PopScope(
-            child: Center(
+            child: const Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -1,4 +1,4 @@
-part of extenssion_module;
+part of 'extension_module.dart';
 
 extension BoolUtil on bool? {
   /// 非空判断包含null
