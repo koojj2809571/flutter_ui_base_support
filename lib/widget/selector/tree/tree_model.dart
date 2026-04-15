@@ -1,6 +1,6 @@
 part of 'tree_selector.dart';
 
 abstract class BaseTreeData<T>{
-  List<T> getTreeData();
+  Future<List<T>> getTreeData();
   String getName();
 }

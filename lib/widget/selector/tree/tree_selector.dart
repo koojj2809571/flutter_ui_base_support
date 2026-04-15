@@ -30,11 +30,16 @@ class TreeSelectDialogState extends State<TreeSelectDialog>
   @override
   void initState() {
     super.initState();
+    _initData();
+  }
+
+  void _initData()async{
     //初始化第一层级所需要显示的内容
-    List<dynamic> list = widget.treeData.getTreeData();
+    List<dynamic> list = await widget.treeData.getTreeData();
     //datas第一层级初始化赋值
     _datas[currentTabPos] = list;
     _tabController = TabController(length: _tabs.length, vsync: this);
+    setState(() {});
   }
 
   @override
