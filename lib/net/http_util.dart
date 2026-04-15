@@ -119,7 +119,9 @@ class HttpUtil {
   }
 
   void removeCancelToken(BuildContext context) {
-    _cancelTokens.remove(_getCancelToken(context));
+    _cancelTokens.removeWhere((key, token){
+      return token == _getCancelToken(context);
+    });
   }
 
   CancelToken? _getCancelToken(BuildContext context) {

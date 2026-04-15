@@ -54,36 +54,36 @@ class _CustomTabBarIndicatorPainter extends BoxPainter {
       ..color = color ?? _kIndicatorColor
       ..style = PaintingStyle.fill
       ..strokeCap = StrokeCap.round;
-    double _height = height ?? _kIndicatorHeight;
-    double _width = lineWidth ?? _kIndicatorWidth;
+    double tempHeight = height ?? _kIndicatorHeight;
+    double tempWidth = lineWidth ?? _kIndicatorWidth;
     switch (type) {
       case CustomTabBarIndicatorType.circle:
         canvas.drawCircle(
           Offset(
             offset.dx + (configuration.size!.width) / 2,
-            configuration.size!.height - _height,
+            configuration.size!.height - tempHeight,
           ),
-          _height,
+          tempHeight,
           paint,
         );
         break;
       case CustomTabBarIndicatorType.triangle:
-        if (_height > configuration.size!.height) _height = _kIndicatorHeight;
+        if (tempHeight > configuration.size!.height) tempHeight = _kIndicatorHeight;
         Path path = Path()
           ..moveTo(
-            offset.dx + (configuration.size!.width) / 2 - _height,
+            offset.dx + (configuration.size!.width) / 2 - tempHeight,
             configuration.size!.height,
           )
           ..lineTo(
-            _height * tan(pi / 6) +
+            tempHeight * tan(pi / 6) +
                 offset.dx +
-                (configuration.size!.width - _height) / 2,
-            configuration.size!.height - _height,
+                (configuration.size!.width - tempHeight) / 2,
+            configuration.size!.height - tempHeight,
           )
           ..lineTo(
-            _height * tan(pi / 6) +
+            tempHeight * tan(pi / 6) +
                 offset.dx +
-                (configuration.size!.width + _height) / 2,
+                (configuration.size!.width + tempHeight) / 2,
             configuration.size!.height,
           );
         canvas.drawPath(path, paint);
@@ -127,16 +127,16 @@ class _CustomTabBarIndicatorPainter extends BoxPainter {
         );
         break;
       case CustomTabBarIndicatorType.runderlineFixed:
-        if (_width > configuration.size!.width) {
-          _width = configuration.size!.width / 3;
+        if (tempWidth > configuration.size!.width) {
+          tempWidth = configuration.size!.width / 3;
         }
         canvas.drawLine(
           Offset(
-            offset.dx + (configuration.size!.width - _width) / 2,
+            offset.dx + (configuration.size!.width - tempWidth) / 2,
             configuration.size!.height - height! / 2,
           ),
           Offset(
-            offset.dx + (configuration.size!.width + _width) / 2,
+            offset.dx + (configuration.size!.width + tempWidth) / 2,
             configuration.size!.height - height! / 2,
           ),
           paint..strokeWidth = (height! / 2),
