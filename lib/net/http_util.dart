@@ -13,7 +13,7 @@ class HttpUtil {
 
   ///第一次初始化baseUrl不能为空
   ///之后调用构造函数获取单例时，传入baseUrl会改变baseURL，要重置为初始化url调用[resetInitUrl]
-  ///如果请求时临时改变url在调用[get][post]时，传入tempChangeUrl
+  ///如果请求时临时改变url在调用请求时，传入tempChangeUrl
   factory HttpUtil({
     String? baseUrl,
     int? cTimeout,
@@ -119,7 +119,7 @@ class HttpUtil {
   }
 
   void removeCancelToken(BuildContext context) {
-    _cancelTokens.removeWhere((key, token){
+    _cancelTokens.removeWhere((key, token) {
       return token == _getCancelToken(context);
     });
   }
@@ -141,7 +141,8 @@ class HttpUtil {
     BuildContext context,
     Options options,
     String path, {
-    dynamic params,
+    dynamic query,
+    dynamic data,
     String? tempChangeUrl,
     required bool isLogRequest,
     required bool isLogResponse,
@@ -164,8 +165,8 @@ class HttpUtil {
     );
     var response = await _dio!.request<T>(
       path,
-      queryParameters: method == 'GET' ? params : null,
-      data: method == 'POST' ? params : null,
+      queryParameters: query,
+      data: data,
       options: requestOptions,
     );
     return response.data;
@@ -176,6 +177,7 @@ class HttpUtil {
   Future<T?> get<T>(
     BuildContext context,
     String path, {
+    dynamic query,
     dynamic params,
     String? tempChangeUrl,
     Options? options,
@@ -192,7 +194,8 @@ class HttpUtil {
       requestOptions,
       path,
       tempChangeUrl: tempChangeUrl,
-      params: params,
+      query: query,
+      data: params,
       isLogRequest: isLogRequest,
       isLogResponse: isLogResponse,
       isCache: isCache,
@@ -206,6 +209,7 @@ class HttpUtil {
   Future<T?> post<T>(
     BuildContext context,
     String path, {
+    dynamic query,
     dynamic params,
     String? tempChangeUrl,
     Options? options,
@@ -222,7 +226,132 @@ class HttpUtil {
       requestOptions,
       path,
       tempChangeUrl: tempChangeUrl,
-      params: params,
+      query: query,
+      data: params,
+      isLogRequest: isLogRequest,
+      isLogResponse: isLogResponse,
+      isCache: isCache,
+      isRefresh: isRefresh,
+      reqContentType: reqContentType,
+    );
+  }
+
+  /// restful put 操作
+  Future<T?> put<T>(
+    BuildContext context,
+    String path, {
+    dynamic query,
+    dynamic params,
+    String? tempChangeUrl,
+    Options? options,
+    bool isLogRequest = false,
+    bool isLogResponse = false,
+    bool isRefresh = false,
+    bool isCache = false,
+    String? reqContentType,
+  }) async {
+    Options requestOptions = options ?? Options();
+    return _request<T>(
+      'PUT',
+      context,
+      requestOptions,
+      path,
+      tempChangeUrl: tempChangeUrl,
+      query: query,
+      data: params,
+      isLogRequest: isLogRequest,
+      isLogResponse: isLogResponse,
+      isCache: isCache,
+      isRefresh: isRefresh,
+      reqContentType: reqContentType,
+    );
+  }
+
+  /// restful delete 操作
+  Future<T?> delete<T>(
+    BuildContext context,
+    String path, {
+    dynamic query,
+    dynamic params,
+    String? tempChangeUrl,
+    Options? options,
+    bool isLogRequest = false,
+    bool isLogResponse = false,
+    bool isRefresh = false,
+    bool isCache = false,
+    String? reqContentType,
+  }) async {
+    Options requestOptions = options ?? Options();
+    return _request<T>(
+      'DELETE',
+      context,
+      requestOptions,
+      path,
+      tempChangeUrl: tempChangeUrl,
+      query: query,
+      data: params,
+      isLogRequest: isLogRequest,
+      isLogResponse: isLogResponse,
+      isCache: isCache,
+      isRefresh: isRefresh,
+      reqContentType: reqContentType,
+    );
+  }
+
+  /// restful patch 操作
+  Future<T?> patch<T>(
+    BuildContext context,
+    String path, {
+    dynamic query,
+    dynamic params,
+    String? tempChangeUrl,
+    Options? options,
+    bool isLogRequest = false,
+    bool isLogResponse = false,
+    bool isRefresh = false,
+    bool isCache = false,
+    String? reqContentType,
+  }) async {
+    Options requestOptions = options ?? Options();
+    return _request<T>(
+      'PATCH',
+      context,
+      requestOptions,
+      path,
+      tempChangeUrl: tempChangeUrl,
+      query: query,
+      data: params,
+      isLogRequest: isLogRequest,
+      isLogResponse: isLogResponse,
+      isCache: isCache,
+      isRefresh: isRefresh,
+      reqContentType: reqContentType,
+    );
+  }
+
+  /// restful head 操作
+  Future<T?> head<T>(
+    BuildContext context,
+    String path, {
+    dynamic query,
+    dynamic params,
+    String? tempChangeUrl,
+    Options? options,
+    bool isLogRequest = false,
+    bool isLogResponse = false,
+    bool isRefresh = false,
+    bool isCache = false,
+    String? reqContentType,
+  }) async {
+    Options requestOptions = options ?? Options();
+    return _request<T>(
+      'HEAD',
+      context,
+      requestOptions,
+      path,
+      tempChangeUrl: tempChangeUrl,
+      query: query,
+      data: params,
       isLogRequest: isLogRequest,
       isLogResponse: isLogResponse,
       isCache: isCache,
