@@ -49,7 +49,10 @@ class LogUtil{
   }
 }
 
-var logger = Logger();
+var logger = Logger(
+  level: isRelease ? Level.error : Level.all,
+  filter: isRelease ? ProductionFilter() : DevelopmentFilter(),
+);
 
 enum LogLevel{
   T,D,I,W,E,F;
