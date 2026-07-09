@@ -154,6 +154,7 @@ class HttpUtil {
     requestOptions = requestOptions.copyWith(
       method: method,
       extra: {
+        if (options.extra != null) ...options.extra!,
         "context": context,
         if (!tempChangeUrl.blank) "OTHER_BASE_URL": tempChangeUrl,
         extraLogRequest: isLogRequest,
